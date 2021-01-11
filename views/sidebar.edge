@@ -1,0 +1,57 @@
+@layout('layouts.app')
+
+@section('content')
+
+<div class="header">
+  <h2>Blog Name</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>{{ post.title }}</h2>
+      <h5>{{ post.subtitle }}, {{ post.createdAt.toDateString() }}</h5>
+      {{--  <div class="fakeimg" style="height:200px;">Image</div>  --}}
+      <img src="{{ post.image }}" class="img-fluid" alt="test">
+      
+        {{{ post.content }}}
+    </div>
+
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Author</h2>
+      <div class="fakeimg2" style="height:200px;">Image</div>
+      <p>Posted by {{ post.author.username }}</p>
+    </div>
+
+
+    <div class="card">
+
+      <h3>Popular Posts</h3>
+     @each(post in posts)
+      <div class="post-preview">
+        <a href="/post/{{ post._id }}">
+          <h2 class="post-title">
+            {{ post.title }}
+          </h2>
+          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+        </a>
+        <p class="post-meta">Posted by
+            <a href="#">{{ post.author.username }}</a>
+            on {{ post.createdAt }}</p>
+      </div><br>
+      <div class="fakeimg">Image</div><br>
+      @endeach
+    
+
+    </div>
+    <div class="card">
+      <h3>tags</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+
+</div>
+
+@endsection

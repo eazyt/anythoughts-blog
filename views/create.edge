@@ -1,0 +1,170 @@
+@layout('layouts.app')
+
+@section('content')
+
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('/img/about-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>create new post<h1>
+            <span class="subheading">This is what I do.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form action="/post/store" method="POST" encType="multipart/form-data">
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Title" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Subtitle</label>
+            <input type="" name="subtitle" placeholder="Subtitle" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>github</label>
+            <input type="" name="github" placeholder="github" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>live</label>
+            <input type="" name="live" placeholder="live" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>backend</label>
+            <input type="" name="backend" placeholder="backend" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>frontend</label>
+            <input type="" name="frontend" placeholder="framework or templating" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>image url</label>
+            <input type="" name="imageUrl" placeholder="image url" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>image url 1</label>
+            <input type="" name="imageUrl_1" placeholder="image url" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>image url 2</label>
+            <input type="" name="imageUrl_2" placeholder="image url" class="form-control">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Scripting Language </label>
+            <input type="" name="language" placeholder="language" class="form-control">
+          </div>
+        </div>
+
+
+
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Content</label>
+            <textarea name="content" placeholder="Content..." cols="30" rows="10" class="form-control"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group mt-5">
+          <div class="form-group controls">
+            <label for="tags">tags: </label>
+            <select id="tags" name="tags">
+              <option value="api">API</option>
+              <option value="web">Web</option>
+              <option value="cms">CMS</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group mt-5">
+          <div class="form-group controls">
+            <label for="tags">Category: </label>
+            <select id="category" name="category">
+              <option value="api">API</option>
+              <option value="web">Web</option>
+              <option value="cms">CMS</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+  
+
+        <div class="form-group mt-5">
+          <input type="file" name="image"class="form-control-file">
+        </div>
+
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">Create Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+@endsection
+
+
+@section('styles')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script>
+      $('textarea').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100,
+        // img: 100%
+      });
+  </script>
+  <script>
+        $(document).ready(function(){
+            $("img").addClass("img-fluid");
+            $("img").css("max-width", "auto");
+            // $("img").css("max-width", "100%");
+        });
+  </script>
+@endsection
+
